@@ -46,7 +46,7 @@ Contributions to FTMGRAM are welcome. To contribute:
 
 ## License
 
-FTMGRAM is licensed under the **GTU-3 License**. For more details, see the [LICENSE](LICENSE) file.
+FTMGRAM is licensed under the **GNU-3 License**. For more details, see the [LICENSE](LICENSE) file.
 
 ## Contact
 
