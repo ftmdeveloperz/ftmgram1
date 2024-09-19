@@ -7,8 +7,8 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or secrets.token_hex(24)
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')  # Your Gmail address
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')  # Your Gmail app password
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME', 'funtoonsmultimedia@gmail.com')  # Your Gmail address
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD', 'ehmf pzui gepz eyjz')  # Your Gmail app password
     MAIL_USE_TLS = True
     MAIL_USE_SSL = False
-    MONGO_URI = os.environ.get('MONGO_URI')  # Your MongoDB URI
+    MONGO_URI = os.environ.get('MONGO_URI', 'mongodb+srv://funtoonsmultimedia:funtoonsmultimedia@ftmgram.l3uji.mongodb.net/?retryWrites=true&w=majority&appName=ftmgram')  # Your MongoDB URI
