@@ -1,5 +1,5 @@
 Flask==2.3.2
-Flask-Mail==1.2.1
+Flask-Mail
 Flask-Login==0.6.2
 Flask-PyMongo==2.3.0
 pymongo==4.1.1
