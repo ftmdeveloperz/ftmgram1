@@ -1,112 +1,59 @@
 # FTMGRAM
 
-FTMGRAM is a social media platform inspired by Instagram. It allows users to register, log in, post updates, and interact with other users. This platform is built with Flask, MongoDB, and styled to resemble Instagram.
+FTMGRAM is a modern social media platform designed to provide a user-friendly experience similar to Instagram. Developed with the Flask framework and utilizing MongoDB for data management, FTMGRAM offers a range of features allowing users to interact, share content, and build connections.
+
+## Overview
+
+FTMGRAM is a social media application that enables users to:
+- **Register and Log In**: Users can create accounts and log in using OTP verification sent to their mobile number.
+- **Post Updates**: Share text, images, and multimedia content with their followers.
+- **Follow and Unfollow**: Connect with other users by following or unfollowing their profiles.
+- **Like and Comment**: Engage with posts by liking and commenting.
+- **Manage Profiles**: View and update their personal profiles and settings.
 
 ## Features
 
-- User Registration and Login with OTP verification via email.
-- Ability to post updates.
-- Follow and unfollow users.
-- Like and comment on posts.
-- View and manage user profiles.
+- **User Authentication**: Secure login and registration process with OTP verification.
+- **Content Sharing**: Users can post updates, including text and multimedia.
+- **User Interaction**: Follow other users, like posts, and leave comments.
+- **Profile Management**: Users can manage their personal information and settings.
 
-## Requirements
+## Technologies Used
 
-- Python 3.11.4
-- Flask
-- Flask-PyMongo
-- Flask-Mail
-- Flask-Login
-- pymongo
-- werkzeug
+- **Flask**: A lightweight WSGI web application framework for Python.
+- **MongoDB**: A NoSQL database used for storing user data and content.
+- **Flask-Mail**: For handling email communications, including OTPs.
+- **Flask-Login**: Manages user sessions and authentication.
+- **Flask-PyMongo**: Integration between Flask and MongoDB.
 
-## Installation
+## Configuration
 
-1. **Clone the repository**:
+- **.env File**: Includes configurations for Flask, MongoDB, and Flask-Mail. Ensure you set up your credentials and secrets securely.
 
-    ```sh
-    git clone https://github.com/yourusername/ftmgram.git
-    cd ftmgram
-    ```
+## Usage
 
-2. **Create and activate a virtual environment**:
-
-    ```sh
-    python -m venv venv
-    source venv/bin/activate  # For Windows use `venv\Scripts\activate`
-    ```
-
-3. **Install dependencies**:
-
-    ```sh
-    pip install -r requirements.txt
-    ```
-
-4. **Create a `.env` file** in the root directory with the following content:
-
-    ```plaintext
-    FLASK_ENV=development
-    FLASK_APP=app.py
-
-    # MongoDB configuration
-    MONGO_URI=mongodb://localhost:27017/ftmgram
-
-    # Flask-Mail configuration
-    MAIL_SERVER=smtp.gmail.com
-    MAIL_PORT=587
-    MAIL_USERNAME=funtoonsmultimedia@gmail.com
-    MAIL_PASSWORD=YOUR_EMAIL_PASSWORD
-    MAIL_USE_TLS=True
-    MAIL_USE_SSL=False
-
-    # Flask-Login configuration
-    SECRET_KEY=your_secret_key_here
-    ```
-
-5. **Run the application**:
-
-    ```sh
-    flask run
-    ```
-
-## Deployment
-
-To deploy this application on a platform like Heroku:
-
-1. **Commit your code to Git**:
-
-    ```sh
-    git add .
-    git commit -m "Initial commit"
-    ```
-
-2. **Create a `Procfile`** with the following content:
-
-    ```plaintext
-    web: python app.py
-    ```
-
-3. **Create a `runtime.txt`** with the Python version:
-
-    ```plaintext
-    python-3.11.4
-    ```
-
-4. **Push your code to Heroku**:
-
-    ```sh
-    heroku create
-    git push heroku main
-    ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+1. **Access the Application**: Open your web browser and navigate to the provided local URL (e.g., `http://localhost:5000`).
+2. **Register an Account**: Use the registration form to create a new account. An OTP will be sent to your mobile number for verification.
+3. **Log In**: Use your credentials to log in and access your profile.
+4. **Interact**: Post updates, follow other users, and engage with content by liking and commenting.
 
 ## Contributing
 
-Feel free to open issues or submit pull requests to improve the platform.
+Contributions to FTMGRAM are welcome. To contribute:
+- **Fork the Repository**: Create your own copy of the project.
+- **Create a Branch**: Develop your changes on a new branch.
+- **Submit a Pull Request**: Propose your changes for inclusion in the main project.
+
+## License
+
+FTMGRAM is licensed under the **GTU-3 License**. For more details, see the [LICENSE](LICENSE) file.
 
 ## Contact
 
-For any questions or support, contact [funtoonsmultimedia@gmail.com](mailto:funtoonsmultimedia@gmail.com).
+For further information or support, please contact [funtoonsmultimedia@gmail.com](mailto:funtoonsmultimedia@gmail.com).
+
+---
+
+**FTMGRAM** is an initiative of **FUN TOONS MULTIMEDIA PVT. LTD.** and is inspired by popular social media platforms, aiming to offer a comprehensive and interactive experience for users. It combines modern web technologies to deliver a seamless and engaging social media environment.
+
+**We will soon launch our official app**, bringing FTMGRAM to mobile devices for an even more accessible and engaging experience.
