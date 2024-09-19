@@ -1,7 +1,10 @@
+
 import os
+import secrets
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'your-secret-key'
+    # Generate a secure random SECRET_KEY if not provided via environment variable
+    SECRET_KEY = os.environ.get('SECRET_KEY') or secrets.token_hex(24)
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')  # Your Gmail address
