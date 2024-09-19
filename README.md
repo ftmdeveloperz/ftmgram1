@@ -1,5 +1,8 @@
 # FTMGRAM
 
+![FTMGRAM Logo](https://ibb.co/C6KSvCh)
+
+
 FTMGRAM is a modern social media platform designed to provide a user-friendly experience similar to Instagram. Developed with the Flask framework and utilizing MongoDB for data management, FTMGRAM offers a range of features allowing users to interact, share content, and build connections.
 
 ## Overview
