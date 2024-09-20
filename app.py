@@ -1,26 +1,21 @@
-from flask import Flask, render_template, redirect, url_for, request, session, flash
+from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_mail import Mail, Message
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
-from flask_pymongo import PyMongo
-import os
 import random
 import string
-from datetime import datetime
-from config import Config
-from models import User, Post
 
 app = Flask(__name__)
-app.config.from_object(Config)
+app.secret_key = 'your_secret_key'  # Replace with your secret key
 
 # Initialize Flask extensions
-mongo = PyMongo(app)
 mail = Mail(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
+# Dummy user loader for demonstration
 @login_manager.user_loader
 def load_user(user_id):
-    return User.get_by_id(user_id)
+    return UserMixin()  # Replace with actual user loading logic if needed
 
 # Utility function to send OTP
 def send_otp(email, otp):
@@ -30,7 +25,7 @@ def send_otp(email, otp):
 
 @app.route('/')
 def home():
-    posts = mongo.db.posts.find().sort('date', -1)
+    posts = []  # Placeholder for posts
     return render_template('index.html', posts=posts)
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -40,20 +35,11 @@ def register():
         email = request.form['email']
         phone = request.form['phone']
         password = request.form['password']
-        
+
         # Generate OTP
         otp_code = ''.join(random.choices(string.digits, k=6))
         send_otp(email, otp_code)
         
-        # Store user data and OTP
-        mongo.db.users.insert_one({
-            'username': username,
-            'email': email,
-            'phone': phone,
-            'password': password,
-            'otp': otp_code,
-            'is_verified': False
-        })
         flash('Registration successful! Please verify your email with the OTP sent.', 'success')
         return redirect(url_for('verify_otp'))
 
@@ -64,9 +50,8 @@ def verify_otp():
     if request.method == 'POST':
         email = request.form['email']
         otp = request.form['otp']
-        user = mongo.db.users.find_one({'email': email, 'otp': otp})
-        if user:
-            mongo.db.users.update_one({'email': email}, {'$set': {'is_verified': True, 'otp': None}})
+        # Dummy check for OTP
+        if otp:  # Implement your verification logic here
             flash('Email verified successfully!', 'success')
             return redirect(url_for('login'))
         else:
@@ -78,13 +63,13 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        user = mongo.db.users.find_one({'email': email, 'password': password})
-        if user and user['is_verified']:
-            user_obj = User(user['_id'], user['username'], email, user['phone'])
+        # Dummy check for login
+        if email and password:  # Replace with actual logic
+            user_obj = UserMixin()  # Replace with actual user object
             login_user(user_obj)
             return redirect(url_for('home'))
         else:
-            flash('Invalid credentials or email not verified.', 'danger')
+            flash('Invalid credentials.', 'danger')
     return render_template('login.html')
 
 @app.route('/logout')
@@ -98,11 +83,7 @@ def logout():
 def post():
     if request.method == 'POST':
         content = request.form['content']
-        mongo.db.posts.insert_one({
-            'author': current_user.id,
-            'content': content,
-            'date': datetime.utcnow()
-        })
+        # Handle content as needed (e.g., store in a list)
         flash('Post created successfully!', 'success')
         return redirect(url_for('home'))
     return render_template('post.html')
@@ -110,7 +91,8 @@ def post():
 @app.route('/profile')
 @login_required
 def profile():
-    user_posts = mongo.db.posts.find({'author': current_user.id}).sort('date', -1)
+    # Dummy placeholder for user posts
+    user_posts = []  # Replace with actual user post fetching logic
     return render_template('profile.html', posts=user_posts)
 
 if __name__ == '__main__':
