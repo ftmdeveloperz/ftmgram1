@@ -11,4 +11,3 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD', 'ehmf pzui gepz eyjz')  # Your Gmail app password
     MAIL_USE_TLS = True
     MAIL_USE_SSL = False
-    MONGO_URI = os.environ.get('MONGO_URI', 'mongodb+srv://funtoonsmultimedia:funtoonsmultimedia@ftmgram.l3uji.mongodb.net/?retryWrites=true&w=majority&appName=ftmgram')  # Your MongoDB URI
